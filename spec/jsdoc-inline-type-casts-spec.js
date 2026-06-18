@@ -100,12 +100,25 @@ test("rejects line-wrapped inline type casts", () => {
 test("fixes multiline inline type casts to a single-line cast", () => {
   const report = fixSource(`
     const value = /**
-                   * Narrows the runtime value to the documented type.
                    * @type {string} */ (input)
   `)
 
   assert.equal(report.fixed, true)
   assert.match(report.output, /const value = \/\*\* @type \{string\} \*\/ \(input\)/)
+})
+
+test("preserves description comments when fixing multiline inline type casts", () => {
+  const report = fixSource(`
+    const value = /**
+                   * Narrows the runtime value.
+                   * @type {string} */ (input)
+  `)
+
+  assert.equal(report.fixed, true)
+  assert.equal(report.output, `
+    // Narrows the runtime value.
+    const value = /** @type {string} */ (input)
+  `)
 })
 
 test("does not autofix wrapped type tags", () => {
