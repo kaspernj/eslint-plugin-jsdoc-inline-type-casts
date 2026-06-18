@@ -1,0 +1,45 @@
+{
+  "name": "eslint-plugin-jsdoc-inline-type-casts",
+  "version": "0.1.0",
+  "description": "ESLint rule requiring inline JSDoc @type casts to stay on one line.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "node --test spec/*.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaspernj/eslint-plugin-jsdoc-inline-type-casts.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "jsdoc",
+    "type-cast"
+  ],
+  "author": "kasper@diestoeckels.de",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaspernj/eslint-plugin-jsdoc-inline-type-casts/issues"
+  },
+  "homepage": "https://github.com/kaspernj/eslint-plugin-jsdoc-inline-type-casts#readme",
+  "peerDependencies": {
+    "eslint": ">=9"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.5.0",
+    "eslint": "^10.0.1",
+    "globals": "^17.0.0",
+    "typescript": "^6.0.2"
+  }
+}
