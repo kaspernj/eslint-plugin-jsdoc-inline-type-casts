@@ -47,4 +47,11 @@ export default [
 
 Requires inline JSDoc `@type` comments to stay on one line. The rule reports only block JSDoc comments that are embedded in expressions or parameter lists, so normal standalone multi-line JSDoc remains valid.
 
-The fixer rewrites simple multi-line inline casts to a one-line comment. It intentionally does not autofix wrapped type tags such as `Array<...>` split over multiple lines, because those should be converted to a named local instead.
+The fixer rewrites simple multi-line inline casts to a one-line comment. When the original JSDoc includes description text, that text is preserved as nearby line comments:
+
+```js
+// Narrows the runtime value.
+const value = /** @type {string} */ (input)
+```
+
+It intentionally does not autofix wrapped type tags such as `Array<...>` split over multiple lines, because those should be converted to a named local instead.
