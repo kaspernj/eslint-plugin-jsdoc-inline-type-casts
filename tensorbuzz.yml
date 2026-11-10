@@ -3,3 +3,11 @@ before_script:
 script:
   - npm run lint
   - npm test
+paths:
+  - "src/**"
+  - "spec/**"
+  - "eslint.config.js"
+  - "tsconfig.json"
+  - "package.json"
+  - "package-lock.json"
+  - "tensorbuzz.yml"
